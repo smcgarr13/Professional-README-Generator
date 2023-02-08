@@ -1,2 +1,4 @@
-# Professional-README-Generator
-An application to quickly create a professional README for a new project
+# potato
+[![OpenFaaS](https://img.shields.io/badge/MIT-cloud-blue.svg)](https://www.openfaas.com)
+## license
+    MIT
