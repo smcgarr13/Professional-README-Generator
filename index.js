@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateMarkdown = require("./generateMarkdown.js");
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -33,7 +34,7 @@ const questions = [
     type: "list",
     name: "license",
     message: "What license does your project use?",
-    choices: ["apache", "MIT", "ISC", "none"]
+    choices: ["apache", "MIT", "ISC", "none"],
   },
   {
     type: "input",
@@ -48,10 +49,36 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, (err) => {
+    if (err) {
+      return console.log(err);
+    }
+    console.log("The file ${fileName} was saved!");
+  });
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  console.log("Initializing Application...");
+  // Initialize application code here
+
+  inquirer
+    .prompt(questions)
+    .then((answers) => {
+      // Use user feedback for... whatever!!
+      writeToFile("readme.md", generateMarkdown(answers));
+    })
+    .catch((error) => {
+      if (error.isTtyError) {
+        // Prompt couldn't be rendered in the current environment
+      } else {
+        // Something else went wrong
+      }
+    });
+  console.log("application initialized successfully!");
+}
 
 // Function call to initialize app
 init();
