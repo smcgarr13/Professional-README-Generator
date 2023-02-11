@@ -46,6 +46,21 @@ const questions = [
     name: 'tests',
     message: 'What tests have you done on your project?'
   },
+  {
+    type: 'input',
+    name: 'GitHub',
+    message: 'What is your GitHub username?'
+  },
+  {
+    type: 'input',
+    name: 'questions',
+    message: 'Are there any instructions if the user has any additional questions?'
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: 'What is your email address in case the user needs to contact you?'
+  },
 ];
 
 // TODO: Create a function to write README file
@@ -74,6 +89,13 @@ function init() {
       }
       // Use user feedback for... whatever!!
       writeToFile('readme.md', `# Table of Contents\n\n${tableOfContents}\n\n${generateMarkdown(answers)}`);
+      // writeToFile('readme.md', `${generateMarkdown(answers)}\n\n# Table of Contents\n\n${tableOfContents}\n\n`);
+      
+      // add GitHub info to README
+      const readme = generateMarkdown(answers);
+      const modifiedReadme = `# Table of Contents\n\n${tableOfContents}\n\n${readme}\n\n## Questions\n\nYou can find me on GitHub at [${answers.GitHub}](https://github.com/${answers.GitHub})\n\n${answers.questions}\n\nEmail: ${answers.email}`;
+      writeToFile('readme.md', modifiedReadme);
+
     })
     .catch((error) => {
       if (error.isTtyError) {
