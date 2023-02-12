@@ -63,6 +63,9 @@ function generateMarkdown(data) {
   ## Usage
   ${data.usage}
 
+  ## Credits
+  ${data.credits}
+
   ${renderLicenseSection(data.license)}
 
   ## Contributing

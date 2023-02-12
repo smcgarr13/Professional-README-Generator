@@ -31,6 +31,11 @@ const questions = [
     message: 'How would the user use this project/application?',
   },
   {
+    type: 'input',
+    name: 'credits',
+    message: 'Are there any credits you would like to note?',
+  },
+  {
     type: 'list',
     name: 'license',
     message: 'What license does your project use?',
@@ -88,7 +93,7 @@ function init() {
         tableOfContents += `-[${sections[i].trim()}](#${sections[i].trim().toLowerCase().replace(/\s/g, '-')})\n`
       }
       // Use user feedback for... whatever!!
-      writeToFile('readme.md', `# Table of Contents\n\n${tableOfContents}\n\n${generateMarkdown(answers)}`);
+      writeToFile('readme.md', `## Table of Contents\n\n${tableOfContents}\n\n${generateMarkdown(answers)}`);
       // writeToFile('readme.md', `${generateMarkdown(answers)}\n\n# Table of Contents\n\n${tableOfContents}\n\n`);
       
       // add GitHub info to README
