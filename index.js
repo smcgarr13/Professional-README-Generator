@@ -98,7 +98,7 @@ function init() {
       
       // add GitHub info to README
       const readme = generateMarkdown(answers);
-      const modifiedReadme = `# Table of Contents\n\n${tableOfContents}\n\n${readme}\n\n## Questions\n\nYou can find me on GitHub at [${answers.GitHub}](https://github.com/${answers.GitHub})\n\n${answers.questions}\n\nEmail: ${answers.email}`;
+      const modifiedReadme = `## Table of Contents\n\n${tableOfContents}\n\n${readme}\n\n## Questions\n\nYou can find me on GitHub at [${answers.GitHub}](https://github.com/${answers.GitHub})\n\n${answers.questions}\n\nEmail: ${answers.email}`;
       writeToFile('readme.md', modifiedReadme);
 
     })

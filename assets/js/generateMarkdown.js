@@ -43,7 +43,7 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   if (license != 'none') {
-    return `## license
+    return `## License
     ${license}`;
   }
 }
