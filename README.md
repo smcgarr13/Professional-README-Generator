@@ -28,7 +28,7 @@
   ## Credits
   N/A
 
-  ## license
+  ## License
     MIT
 
   ## Contributing
